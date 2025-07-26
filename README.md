@@ -1,55 +1,44 @@
-# 🛒 Sales Forecasting Project
+# Sales Forecasting Project
 
-## 📌 Overview
-This project focuses on building a robust machine learning pipeline to **predict daily item-level sales** for a retail chain. By leveraging historical sales, store metadata, transactions, oil prices, and holidays/events, we aim to forecast future sales and uncover patterns that influence retail performance.
+## Overview
+This project aims to predict sales for a retail company using historical sales data and additional information such as oil prices, store details, holidays, and transactions. The project involves data preprocessing, feature engineering, and developing machine learning models to forecast future sales trends.
 
----
+## Datasets
+- **`holidays_events.csv`**: Contains information on holidays and events that could impact sales.
+- **`oil.csv`**: Daily oil prices data, which may influence the economy and retail sales.
+- **`stores.csv`**: Information about the stores, such as their locations and types.
+- **`test.csv`**: Data provided to predict future sales.
+- **`transactions.csv`**: Store transaction data representing sales volumes.
 
-## 📁 Datasets
+## Usage
+### 1. Clone the Repository:
+```bash
+git clone https://github.com/ujwalanadella/Sales-Forecasting.git
+```
 
-| File Name              | Description |
-|------------------------|-------------|
-| `train.csv`            | Main training data containing date-wise item sales per store, now enriched with state info |
-| `test.csv`             | Test data used for evaluating model predictions |
-| `stores.csv`           | Metadata for each store (e.g., state, type, cluster) |
-| `transactions.csv`     | Daily transaction count per store |
-| `holidays_events.csv`  | Local/national holidays and special events (could impact sales) |
-| `oil.csv`              | Daily oil prices, used as a macroeconomic feature |
-| `sample_submission.csv`| Sample format for the prediction output |
+### 2. Open Jupyter Notebook:
+Navigate to the project directory and open the `Sales forecasting.ipynb` file in Jupyter Notebook to explore the analysis and model development.
 
----
+### 3. Explore the Project:
+The notebook contains detailed data preprocessing steps, feature engineering techniques, and visualization of sales trends. It also covers various machine learning models used to predict sales, along with their evaluation metrics.
 
-## 🧑‍💻 Project Workflow
+## Dependencies
+- **Python 3.x**
+- **Jupyter Notebook**
+- **Libraries**:
+  - `pandas`
+  - `numpy`
+  - `scikit-learn`
+  - `matplotlib`
+  - `seaborn`
 
-1. **Data Loading & Cleaning**
-   - Merging datasets based on `store_nbr` and `date`
-   - Handling missing values
-   - Creating additional time-based features (month, weekday, etc.)
+Install these dependencies using:
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn
+```
 
-2. **Feature Engineering**
-   - Incorporating holiday/event impact
-   - Including oil price fluctuations
-   - Analyzing transaction trends
-   - State-wise and item-wise aggregations
+## Results
+The notebook includes visualizations to understand sales trends over time and model evaluation metrics for effective sales forecasting. The results can guide retail strategy by identifying key sales drivers and predicting future sales performance.
 
-3. **Visualization**
-   - Sales trend analysis
-   - State-wise sales distribution (pie/bar charts)
-   - Seasonal patterns and anomalies
-
-4. **Modeling**
-   - Regression models (e.g., XGBoost, Random Forest)
-   - Time-series forecasting (optional)
-   - Evaluation using metrics like RMSE/MAE
-
----
-
-## 📊 Example Visualization
-
-```python
-# Pie chart of sales by state
-state_sales = train_df.groupby('state')['sales'].sum()
-plt.figure(figsize=(10, 10))
-plt.pie(state_sales, labels=state_sales.index, autopct='%1.1f%%', startangle=90)
-plt.title("Sales Distribution by State")
-plt.show()
+## Contributing
+Contributions are welcome! Feel free to fork the repository, make modifications, and submit a pull request.
